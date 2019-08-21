@@ -47,6 +47,37 @@ class Usuarios extends Model
         return $this->email;
     }
 
+    public function logado()
+    {
+        if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+        FUNÇÕES PARA O BANCO DE DADOS
+    */
+
+    public function acessar($email, $senha)
+    {
+        try {
+            $sql = $this->db->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
+            $sql->execute(array(
+                ':email' => $email,
+                ':senha' => $senha
+            ));
+            if ($sql->rowCount() > 0) {
+                return $sql->fetch();
+            } else {
+                return false;
+            }
+        } catch (Exception $erro) {
+            return $erro->getMessage();
+        }
+    }
+
     public function selecionarTodos()
     {
         try {

@@ -1,3 +1,8 @@
+.form-login {
+    width: 100%;
+    max-width: 350px;
+}
+
 .panel {
     width: 100%;
     background-color: white;
@@ -79,6 +84,10 @@ color: #777;
     position: absolute;
     right: 20px;
     top: 30px;
+    animation: slide 1s 1;
+}
+
+.msg-login {
     animation: slide 1s 1;
 }
 
