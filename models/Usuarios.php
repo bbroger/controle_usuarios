@@ -78,10 +78,14 @@ class Usuarios extends Model
         }
     }
 
-    public function selecionarTodos()
+    public function selecionarTodos($ordenacao)
     {
         try {
-            $sql = $this->db->query("SELECT * FROM usuarios");
+            if ($ordenacao == '') {
+                $sql = $this->db->query("SELECT * FROM usuarios");
+            } else {
+                $sql = $this->db->query("SELECT * FROM usuarios ORDER BY $ordenacao");
+            }
 
             if ($sql->rowCount() > 0) {
                 return $sql->fetchAll();

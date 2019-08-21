@@ -9,8 +9,8 @@
         <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
+                    <th><a href="<?php echo BASE_URL ?>?ordenacao=nome">Nome</a></th>
+                    <th><a href="<?php echo BASE_URL ?>?ordenacao=email">E-mail</a></th>
                     <th></th>
                 </tr>
             </thead>
