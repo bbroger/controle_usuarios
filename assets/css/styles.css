@@ -96,6 +96,11 @@ color: #777;
     animation: slide 1s 1;
 }
 
+.form-group a {
+    margin-top: 10px;
+    color: var(--primary);
+}
+
 /* Fallback for Edge
 -------------------------------------------------- */
 @supports (-ms-ime-align: auto) {

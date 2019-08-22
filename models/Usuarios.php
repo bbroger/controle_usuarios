@@ -6,6 +6,7 @@ class Usuarios extends Model
     private $nome;
     private $senha;
     private $email;
+    private $cod_convite;
 
     public function setId($id)
     {
@@ -47,6 +48,26 @@ class Usuarios extends Model
         return $this->email;
     }
 
+    /**
+     * Get the value of cod_convite
+     */
+    public function getCod_convite()
+    {
+        return $this->cod_convite;
+    }
+
+    /**
+     * Set the value of cod_convite
+     *
+     * @return  self
+     */
+    public function setCod_convite($cod_convite)
+    {
+        $this->cod_convite = $cod_convite;
+
+        return $this;
+    }
+
     public function logado()
     {
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
@@ -63,7 +84,7 @@ class Usuarios extends Model
     public function acessar($email, $senha)
     {
         try {
-            $sql = $this->db->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
+            $sql = $this->db->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha AND status = 1");
             $sql->execute(array(
                 ':email' => $email,
                 ':senha' => $senha
@@ -122,6 +143,22 @@ class Usuarios extends Model
                 ':nome' => $nome,
                 ':email' => $email,
                 ':senha' => $senha
+            ));
+            return true;
+        } catch (Exception $erro) {
+            return $erro->getMessage();
+        }
+    }
+
+    public function cadastroComConvite($nome, $email, $senha, $cod_convite)
+    {
+        try {
+            $sql = $this->db->prepare("INSERT INTO usuarios (nome, email, senha, cod_convite) VALUES (:nome, :email, :senha, :cod_convite);");
+            $sql->execute(array(
+                ':nome' => $nome,
+                ':email' => $email,
+                ':senha' => $senha,
+                ':cod_convite' => $cod_convite
             ));
             return true;
         } catch (Exception $erro) {

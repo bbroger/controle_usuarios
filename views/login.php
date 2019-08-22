@@ -13,7 +13,8 @@
                 <label for="inputPassword">Senha</label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Acessar</button>
+                <button type="submit" class="btn btn-primary btn-block">Acessar</button>
+                <a href="<?php echo BASE_URL ?>login/adicionar" class="text-center d-block">Cadastrar</a>
             </div>
         </form>
     </div>
