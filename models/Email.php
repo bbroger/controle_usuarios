@@ -3,9 +3,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '../assets/libs/PHPMailer/src/PHPMailer.php';
-require '../assets/libs/PHPMailer/src/Exception.php';
-require '../assets/libs/PHPMailer/src/SMTP.php';
+require 'assets/libs/PHPMailer/src/PHPMailer.php';
+require 'assets/libs/PHPMailer/src/Exception.php';
+require 'assets/libs/PHPMailer/src/SMTP.php';
 
 class Email extends Model
 {
@@ -15,10 +15,10 @@ class Email extends Model
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = 'email-ssl.com.br';
-        $mail->Username = 'meuusuario';
-        $mail->Password = 'minhasenha';
+        $mail->Username = 'naoresponder@laboratoriounilab.com.br';
+        $mail->Password = 'respostaunilab';
         $mail->SMTPAuth = true;
-        $mail->Port = 587;
+        $mail->Port = 465;
         $mail->SMTPSecure = 'ssl';
         $mail->setFrom('naoresponder@laboratoriounilab.com.br', 'Não responder - Unilab');
         $mail->isHTML(true);

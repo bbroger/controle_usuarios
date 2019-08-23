@@ -2,10 +2,10 @@
 
 define("BASE_URL", "http://localhost/controle_usuarios/");
 $config = [
-    'dbname' => 'usuarios',
+    'dbname' => 'controle_usuarios',
     'host' => 'localhost',
     'dbuser' => 'root',
-    'dbpass' => '',
+    'dbpass' => 'root',
 ];
 
 global $db;
